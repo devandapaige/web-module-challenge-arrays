@@ -150,16 +150,12 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 
 hint - you can use the .includes method to help you solve this */
 
-//Okay, so this function kind of works, and will give a result of "Chocolate" but not the other ones...
 const filteredFlavors = [];
 
 function filterByWord(originalFlavors, filter) {
   for (var i = 0; i < originalFlavors.length; i++) {
     if (originalFlavors[i].includes(filter)) {
       filteredFlavors.push(originalFlavors[i]);
-    } else {
-      console.log("trial");
-      //Added this to confirm that I am getting 30 other outputs for this loop, but they are not filtering with the "chocolate".//
     }
   }
   console.log(filteredFlavors);
@@ -177,10 +173,15 @@ Your function should accept:
 and should return the average number of words per item in the array. 
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
-
-function getAverageWordLength(/*code here*/) {
-  /*code here*/
+var avgWordLength = 0;
+function getAverageWordLength(originalFlavors) {
+  for (var i = 0; i < originalFlavors.length; i++) {
+    var avg = originalFlavors.split(" ");
+    avgWordLength += avg[i].length;
+  }
+  return avgWordLength;
 }
+console.log(getAverageWordLength(originalFlavors));
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
