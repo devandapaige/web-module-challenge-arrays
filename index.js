@@ -271,6 +271,28 @@ var regionalFlavors = [
   "Caramel 'n' Cookies",
 ];
 
-function getRandomFlavors(/*code here*/) {
-  /*code here*/
+var randomFlavors = [0];
+function getRandomFlavors(
+  originalFlavors,
+  newFlavors,
+  seasonalFlavors,
+  regionalFlavors
+) {
+  var combineFlavors = originalFlavors.concat(
+    newFlavors,
+    seasonalFlavors,
+    regionalFlavors
+  );
+  //console.log(combineFlavors)
+  combineFlavors.sort(() => Math.random() - 0.5);
+  randomFlavors = combineFlavors.slice(0, 31);
+  return randomFlavors;
 }
+console.log(
+  getRandomFlavors(
+    originalFlavors,
+    newFlavors,
+    seasonalFlavors,
+    regionalFlavors
+  )
+);
